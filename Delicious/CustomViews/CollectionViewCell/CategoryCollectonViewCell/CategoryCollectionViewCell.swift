@@ -9,8 +9,11 @@
 
 
 import UIKit
+import Kingfisher
 
 class CategoryCollectionViewCell: UICollectionViewCell {
+    
+    static let identifier = String(describing: CategoryCollectionViewCell.self)
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,7 +24,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with category: DishCategory) {
-        imageView.image = UIImage(named: category.imageName)
+        imageView.kf.setImage(with: category.imageName.asURL)
         titleLabel.text = category.title
     }
 }
