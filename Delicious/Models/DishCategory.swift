@@ -11,7 +11,7 @@
 import Foundation
 
 struct DishCategory {
-    let id: String
-    let title: String
-    let imageName: String
+    let id: String?
+    let title: String?
+    let imageName: String?
 }
