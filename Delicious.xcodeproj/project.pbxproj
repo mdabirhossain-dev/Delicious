@@ -3,15 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 77;
 	objects = {
+
+/* Begin PBXBuildFile section */
+		89FE24112ED18A725E8EB432 /* Pods_Delicious.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB7BA4BB5227E201CE3D81D /* Pods_Delicious.framework */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1009ED212CD5032600D99C53 /* Delicious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delicious.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EB7BA4BB5227E201CE3D81D /* Pods_Delicious.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Delicious.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB6E41EF5C7EB2AB55BE730F /* Pods-Delicious.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delicious.release.xcconfig"; path = "Target Support Files/Pods-Delicious/Pods-Delicious.release.xcconfig"; sourceTree = "<group>"; };
+		CA088B409559ED3FB8DB2390 /* Pods-Delicious.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delicious.debug.xcconfig"; path = "Target Support Files/Pods-Delicious/Pods-Delicious.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		1009ED332CD5032800D99C53 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		1009ED332CD5032800D99C53 /* Exceptions for "Delicious" folder in "Delicious" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -21,7 +28,14 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1009ED232CD5032600D99C53 /* Delicious */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (1009ED332CD5032800D99C53 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Delicious; sourceTree = "<group>"; };
+		1009ED232CD5032600D99C53 /* Delicious */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1009ED332CD5032800D99C53 /* Exceptions for "Delicious" folder in "Delicious" target */,
+			);
+			path = Delicious;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89FE24112ED18A725E8EB432 /* Pods_Delicious.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +55,8 @@
 			children = (
 				1009ED232CD5032600D99C53 /* Delicious */,
 				1009ED222CD5032600D99C53 /* Products */,
+				C572044C18939B2031690402 /* Pods */,
+				20987D5FA32A7EDA57560B24 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +68,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		20987D5FA32A7EDA57560B24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1EB7BA4BB5227E201CE3D81D /* Pods_Delicious.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C572044C18939B2031690402 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA088B409559ED3FB8DB2390 /* Pods-Delicious.debug.xcconfig */,
+				BB6E41EF5C7EB2AB55BE730F /* Pods-Delicious.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -58,9 +93,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1009ED342CD5032800D99C53 /* Build configuration list for PBXNativeTarget "Delicious" */;
 			buildPhases = (
+				C761584F112F667DFAF5A2D5 /* [CP] Check Pods Manifest.lock */,
 				1009ED1D2CD5032600D99C53 /* Sources */,
 				1009ED1E2CD5032600D99C53 /* Frameworks */,
 				1009ED1F2CD5032600D99C53 /* Resources */,
+				D290A8D22DBE9D2A45876B96 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -70,8 +107,6 @@
 				1009ED232CD5032600D99C53 /* Delicious */,
 			);
 			name = Delicious;
-			packageProductDependencies = (
-			);
 			productName = Delicious;
 			productReference = 1009ED212CD5032600D99C53 /* Delicious.app */;
 			productType = "com.apple.product-type.application";
@@ -92,7 +127,6 @@
 				};
 			};
 			buildConfigurationList = 1009ED1C2CD5032600D99C53 /* Build configuration list for PBXProject "Delicious" */;
-			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -101,6 +135,7 @@
 			);
 			mainGroup = 1009ED182CD5032600D99C53;
 			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 1009ED222CD5032600D99C53 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -120,6 +155,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C761584F112F667DFAF5A2D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Delicious-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D290A8D22DBE9D2A45876B96 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Delicious/Pods-Delicious-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Delicious/Pods-Delicious-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Delicious/Pods-Delicious-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1009ED1D2CD5032600D99C53 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -133,6 +210,7 @@
 /* Begin XCBuildConfiguration section */
 		1009ED352CD5032800D99C53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA088B409559ED3FB8DB2390 /* Pods-Delicious.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -162,6 +240,7 @@
 		};
 		1009ED362CD5032800D99C53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB6E41EF5C7EB2AB55BE730F /* Pods-Delicious.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
