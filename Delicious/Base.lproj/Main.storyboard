@@ -264,28 +264,32 @@
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xrh-hz-NkS">
+                                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xrh-hz-NkS">
                                                         <rect key="frame" x="0.0" y="48" width="393" height="120"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="YXy-i9-xiF"/>
                                                         </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kOL-sQ-5gC">
-                                                            <size key="itemSize" width="128" height="128"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kOL-sQ-5gC">
+                                                            <size key="itemSize" width="128" height="120"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="s61-Mn-yUn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                                                <rect key="frame" x="20" y="0.0" width="128" height="120"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="37N-QY-FGF">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="120"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </collectionViewCellContentView>
                                                             </collectionViewCell>
                                                         </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="Crh-xQ-FUV" id="zjy-aq-nlD"/>
+                                                            <outlet property="delegate" destination="Crh-xQ-FUV" id="BQ6-d2-SaC"/>
+                                                        </connections>
                                                     </collectionView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -329,6 +333,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="categoryCollectionView" destination="Aux-Qm-Vaa" id="uwO-Xr-tYL"/>
+                        <outlet property="chefsSpecialsCollectionView" destination="Xrh-hz-NkS" id="9Se-kL-jPf"/>
                         <outlet property="popularCollectionView" destination="BSm-gi-Tvf" id="4DO-hh-5Pc"/>
                     </connections>
                 </viewController>

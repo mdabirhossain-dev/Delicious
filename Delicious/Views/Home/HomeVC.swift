@@ -14,6 +14,7 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var popularCollectionView: UICollectionView!
+    @IBOutlet weak var chefsSpecialsCollectionView: UICollectionView!
     
     let categories: [DishCategory] = [
         DishCategory(id: "id", title: "African Dish 0", imageName: "https://picsum.photos/100/200"),
@@ -29,6 +30,12 @@ class HomeVC: UIViewController {
         .init(id: "id3", name: "Pasta", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 53.4343),
         .init(id: "id4", name: "Burger", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 54.5343),
         .init(id: "id4", name: "Luchi", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 55.6343)
+    ]
+    
+    let specials: [Dish] = [
+        .init(id: "id3", name: "Fried Plantine", image: "https://picsum.photos/100/200", description: "This is the best one.", calories: 53.4343),
+        .init(id: "id4", name: "Beans and Garri", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 54.5343),
+        .init(id: "id4", name: "Luchi", image: "https://picsum.photos/100/200", description: "Taste is so good.", calories: 55.6343)
     ]
 
     override func viewDidLoad() {
@@ -47,6 +54,7 @@ class HomeVC: UIViewController {
     private func registerNib() {
         categoryCollectionView.register(UINib(nibName: CategoryCollectionViewCell.identifier, bundle: nil),  forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
         popularCollectionView.register(UINib(nibName: PopularCollectionViewCell.identifier, bundle: nil),  forCellWithReuseIdentifier: PopularCollectionViewCell.identifier)
+        chefsSpecialsCollectionView.register(UINib(nibName: ChefsSpecialsCollectionViewCell.identifier, bundle: nil),  forCellWithReuseIdentifier: ChefsSpecialsCollectionViewCell.identifier)
     }
 }
 
@@ -62,6 +70,8 @@ extension HomeVC: UICollectionViewDataSource {
                 return categories.count
             case popularCollectionView:
                 return populars.count
+            case chefsSpecialsCollectionView:
+                return specials.count
             default:
                 return 0
         }
@@ -71,12 +81,17 @@ extension HomeVC: UICollectionViewDataSource {
         switch collectionView {
             case categoryCollectionView:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as! CategoryCollectionViewCell
-                cell.configure(with: categories[indexPath.row])
+                cell.setup(category: categories[indexPath.row])
                 
                 return cell
             case popularCollectionView:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularCollectionViewCell.identifier, for: indexPath) as! PopularCollectionViewCell
                 cell.setup(dish: populars[indexPath.row])
+                
+                return cell
+            case chefsSpecialsCollectionView:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChefsSpecialsCollectionViewCell.identifier, for: indexPath) as! ChefsSpecialsCollectionViewCell
+                cell.setup(dish: specials[indexPath.row])
                 
                 return cell
             default:
