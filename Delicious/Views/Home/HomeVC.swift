@@ -17,16 +17,16 @@ class HomeVC: UIViewController {
     @IBOutlet weak var chefsSpecialsCollectionView: UICollectionView!
     
     let categories: [DishCategory] = [
-        DishCategory(id: "id", title: "African Dish 0", imageName: "https://picsum.photos/100/200"),
-        DishCategory(id: "id", title: "African Dish 1", imageName: "https://picsum.photos/100/200"),
-        DishCategory(id: "id", title: "African Dish 2", imageName: "https://picsum.photos/100/200"),
-        DishCategory(id: "id", title: "African Dish 3", imageName: "https://picsum.photos/100/200"),
-        DishCategory(id: "id", title: "African Dish 4", imageName: "https://picsum.photos/100/200"),
-        DishCategory(id: "id", title: "African Dish 5", imageName: "https://picsum.photos/100/200"),
+        .init(id: "id", title: "African Dish 0", imageName: "https://picsum.photos/100/200"),
+        .init(id: "id", title: "African Dish 1", imageName: "https://picsum.photos/100/200"),
+        .init(id: "id", title: "African Dish 2", imageName: "https://picsum.photos/100/200"),
+        .init(id: "id", title: "African Dish 3", imageName: "https://picsum.photos/100/200"),
+        .init(id: "id", title: "African Dish 4", imageName: "https://picsum.photos/100/200"),
+        .init(id: "id", title: "African Dish 5", imageName: "https://picsum.photos/100/200"),
     ]
     let populars: [Dish] = [
         .init(id: "id1", name: "Pizza", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 51.2343),
-        .init(id: "id2", name: "Sausages", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 52.3343),
+        .init(id: "id2", name: "Sausages", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested--1. This is the best food I have ever tested--2. This is the best food I have ever tested--3. This is the best food I have ever tested--4. This is the best food I have ever tested--5. ", calories: 52.3343),
         .init(id: "id3", name: "Pasta", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 53.4343),
         .init(id: "id4", name: "Burger", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 54.5343),
         .init(id: "id4", name: "Luchi", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 55.6343)
@@ -96,6 +96,17 @@ extension HomeVC: UICollectionViewDataSource {
                 return cell
             default:
                 return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == categoryCollectionView {
+            
+        } else {
+            let controller = DishDetailViewController.instanciate()
+            controller.dish = collectionView == popularCollectionView ? populars[indexPath.row] : specials[indexPath.row]
+            
+            navigationController?.pushViewController(controller, animated: true)
         }
     }
 }
