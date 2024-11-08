@@ -17,12 +17,12 @@ class HomeVC: UIViewController {
     @IBOutlet weak var chefsSpecialsCollectionView: UICollectionView!
     
     let categories: [DishCategory] = [
-        .init(id: "id", title: "African Dish 0", imageName: "https://picsum.photos/100/200"),
-        .init(id: "id", title: "African Dish 1", imageName: "https://picsum.photos/100/200"),
-        .init(id: "id", title: "African Dish 2", imageName: "https://picsum.photos/100/200"),
-        .init(id: "id", title: "African Dish 3", imageName: "https://picsum.photos/100/200"),
-        .init(id: "id", title: "African Dish 4", imageName: "https://picsum.photos/100/200"),
-        .init(id: "id", title: "African Dish 5", imageName: "https://picsum.photos/100/200"),
+        .init(id: "id", name: "African Dish 0", imageName: "https://picsum.photos/100/200"),
+        .init(id: "id", name: "African Dish 1", imageName: "https://picsum.photos/100/200"),
+        .init(id: "id", name: "African Dish 2", imageName: "https://picsum.photos/100/200"),
+        .init(id: "id", name: "African Dish 3", imageName: "https://picsum.photos/100/200"),
+        .init(id: "id", name: "African Dish 4", imageName: "https://picsum.photos/100/200"),
+        .init(id: "id", name: "African Dish 5", imageName: "https://picsum.photos/100/200"),
     ]
     let populars: [Dish] = [
         .init(id: "id1", name: "Pizza", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 51.2343),
@@ -101,7 +101,10 @@ extension HomeVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoryCollectionView {
+            let controller = DishListViewController.instanciate()
+            controller.category = categories[indexPath.row]
             
+            navigationController?.pushViewController(controller, animated: true)
         } else {
             let controller = DishDetailViewController.instanciate()
             controller.dish = collectionView == popularCollectionView ? populars[indexPath.row] : specials[indexPath.row]
