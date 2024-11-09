@@ -45,6 +45,13 @@ class HomeVC: UIViewController {
         
         setupView()
         registerNib()
+        
+        
+        let service = NetworkService()
+        let request = service.createRequest(route: .temp, method: .post, parameters: ["firstName" : "Md Abir", "lastName": "Hossain"])
+        
+        print("REQUEsT: \(request?.url)")
+        print("REQUEsT BODY: \(request?.httpBody)")
     }
     
     private func setupView() {
