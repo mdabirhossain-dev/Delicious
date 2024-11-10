@@ -46,12 +46,22 @@ class HomeVC: UIViewController {
         setupView()
         registerNib()
         
-        
-        let service = NetworkService()
-        let request = service.createRequest(route: .temp, method: .post, parameters: ["firstName" : "Md Abir", "lastName": "Hossain"])
-        
-        print("REQUEsT: \(request?.url)")
-        print("REQUEsT BODY: \(request?.httpBody)")
+        NetworkService.shared.makeRequest { (result) in
+            switch result {
+                case .success(let data):
+                    print("Decoded DATA Count for USER: \(data.count)")
+                    for i in data {
+                        print("Decoded DATA for USER: \(i.name)")
+                    }
+                case .failure(let error):
+                    print("ERROR for USER: \(error.localizedDescription)")
+            }
+        }
+//        let service = NetworkService()
+//        let request = service.createRequest(route: .temp, method: .post, parameters: ["firstName" : "Md Abir", "lastName": "Hossain"])
+//        
+//        print("REQUEsT: \(request?.url)")
+//        print("REQUEsT BODY: \(request?.httpBody)")
     }
     
     private func setupView() {
