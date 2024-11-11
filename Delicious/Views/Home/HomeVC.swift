@@ -27,9 +27,9 @@ class HomeVC: UIViewController {
         // Do any additional setup after loading the view.
         
         setupView()
-        registerNib()
         
-        ProgressHUD.animationType = .activityIndicator
+        ProgressHUD.animate("Loading...")
+        ProgressHUD.colorAnimation = .purple
         NetworkService.shared.fetchAllCategories { [weak self] result in
             switch result {
                 case .success(let allDishes):
@@ -42,21 +42,18 @@ class HomeVC: UIViewController {
                     self?.popularCollectionView.reloadData()
                     self?.chefsSpecialsCollectionView.reloadData()
                     
-                    ProgressHUD.dismiss()
+                    ProgressHUD.succeed()
                 case .failure(let error):
                     print("ALL DISHES err: \(error.localizedDescription)")
-                    ProgressHUD.error(error.localizedDescription)
+                    ProgressHUD.failed(error.localizedDescription)
             }
         }
-//        let service = NetworkService()
-//        let request = service.createRequest(route: .temp, method: .post, parameters: ["firstName" : "Md Abir", "lastName": "Hossain"])
-//        
-//        print("REQUEsT: \(request?.url)")
-//        print("REQUEsT BODY: \(request?.httpBody)")
     }
     
     private func setupView() {
         title = "Delicious"
+        
+        registerNib()
     }
     
     private func registerNib() {
