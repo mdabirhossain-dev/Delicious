@@ -17,8 +17,8 @@ struct NetworkService {
     
     private init() {}
     
-    func makeRequest(completion: @escaping(Result<[Dish], Error>) -> Void) {
-        request(route: .temp, method: .get, completion: completion)
+    func fetchAllCategories(completion: @escaping(Result<AllDishes, Error>) -> Void) {
+        request(route: .fetchAllCategories, method: .get, completion: completion)
     }
     
     private func request<T: Decodable>(route: Route,
@@ -35,6 +35,7 @@ struct NetworkService {
             if let data = data {
                 result = .success(data)
                 let responseString = String(data: data, encoding: .utf8) ?? "Could not convert DATA to string"
+                // MARK: - Undecoded JSON response
 //                print("RESPONSE STRING:: \(responseString)")
             } else if let error = error {
                 result = .failure(error)
@@ -87,7 +88,7 @@ struct NetworkService {
     ///   - method: Type of request (GET, POST, DELETE etc.)
     ///   - parameters: Exra information if needs to send to backend
     /// - Returns: URLRequest
-     func createRequest(route: Route,
+     private func createRequest(route: Route,
                                method: Method,
                                parameters: [String: Any]? = nil) -> URLRequest? {
         let urlString = Route.baseURL + route.description

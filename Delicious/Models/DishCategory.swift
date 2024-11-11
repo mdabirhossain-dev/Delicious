@@ -10,8 +10,14 @@
 
 import Foundation
 
-struct DishCategory {
+struct DishCategory: Decodable {
     let id: String?
     let name: String?
-    let imageName: String?
+    let image: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name = "title"
+        case image
+    }
 }
