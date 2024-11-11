@@ -8,5 +8,6 @@ target 'Delicious' do
   # Pods for Delicious
   pod "Kingfisher"
   pod "ProgressHUD"
+  pod "IQKeyboardManagerSwift"
 
 end

@@ -10,6 +10,7 @@
 
 import UIKit
 import Kingfisher
+import ProgressHUD
 
 class DishDetailViewController: UIViewController {
     
@@ -30,6 +31,8 @@ class DishDetailViewController: UIViewController {
     }
     
     private func setupView() {
+        self.navigationController?.navigationBar.topItem?.title = ""
+        
         imageView.kf.setImage(with: dish?.image?.asURL)
         titleLabel.text = dish?.name
         caloriesLabel.text = dish?.formattedCalories
@@ -37,7 +40,20 @@ class DishDetailViewController: UIViewController {
     }
     
     @IBAction func orderButtonAction(_ sender: Any) {
+        guard let name = nameField.text?.trimmingCharacters(in: .whitespaces), !name.isEmpty else {
+            ProgressHUD.error("Please enter your name", image: UIImage(systemName: "xmark"))
+            return
+        }
         
+        ProgressHUD.animate("Placing order...")
+        NetworkService.shared.placeOrder(dishID: dish?.id ?? "", dishName: dish?.name ?? "") { [weak self] (result) in
+            switch result {
+                case .success(let order):
+                    ProgressHUD.success("Yor order has been placed 👨🏻‍🍳")
+                case .failure(let error):
+                    ProgressHUD.error(error.localizedDescription)
+            }
+        }
     }
     
 }
