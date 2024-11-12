@@ -13,7 +13,7 @@
         <!--OnboardingVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="OnboardingVC" customModule="Delicious" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingVC" id="BYZ-38-t0r" customClass="OnboardingVC" customModule="Delicious" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +136,7 @@
         <!--Delicious-->
         <scene sceneID="G3o-5g-Sc8">
             <objects>
-                <viewController id="Crh-xQ-FUV" customClass="HomeVC" customModule="Delicious" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="Crh-xQ-FUV" customClass="HomeVC" customModule="Delicious" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ypS-HS-Qfk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
