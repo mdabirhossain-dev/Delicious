@@ -46,7 +46,7 @@ class DishDetailViewController: UIViewController {
         }
         
         ProgressHUD.animate("Placing order...")
-        NetworkService.shared.placeOrder(dishID: dish?.id ?? "", dishName: dish?.name ?? "") { [weak self] (result) in
+        NetworkService.shared.placeOrder(dishID: dish?.id ?? "", dishName: name) { [weak self] (result) in
             switch result {
                 case .success(let order):
                     ProgressHUD.success("Yor order has been placed 👨🏻‍🍳")
