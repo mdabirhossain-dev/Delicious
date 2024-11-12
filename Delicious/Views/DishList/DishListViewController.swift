@@ -9,19 +9,14 @@
 
 
 import UIKit
+import ProgressHUD
 
 class DishListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     var category: DishCategory!
-    let dishList: [Dish] = [
-        .init(id: "id1", name: "Pizza", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 51.2343),
-        .init(id: "id2", name: "Sausages", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested--1. This is the best food I have ever tested--2. This is the best food I have ever tested--3. This is the best food I have ever tested--4. This is the best food I have ever tested--5. ", calories: 52.3343),
-        .init(id: "id3", name: "Pasta", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 53.4343),
-        .init(id: "id4", name: "Burger", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 54.5343),
-        .init(id: "id4", name: "Luchi", image: "https://picsum.photos/100/200", description: "This is the best food I have ever tested.", calories: 55.6343)
-    ]
+    var dishList: [Dish] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +24,19 @@ class DishListViewController: UIViewController {
         // Do any additional setup after loading the view.
         title = category.name
         registerCell()
+        
+        ProgressHUD.animate("Loadig...")
+        NetworkService.shared.fetchCategoryDishes(categoryID: category.id ?? "") { [weak self] (result) in
+            switch result {
+                case .success(let dishes):
+                    self?.dishList = dishes
+                    self?.tableView.reloadData()
+                    print(dishes)
+                    ProgressHUD.succeed()
+                case .failure(let error):
+                    ProgressHUD.error(error.localizedDescription)
+            }
+        }
     }
     
     private func registerCell() {
