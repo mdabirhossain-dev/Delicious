@@ -26,8 +26,7 @@ class OrderListViewController: UIViewController {
         ProgressHUD.animate("Loading...")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(_ animated: Bool) {
         NetworkService.shared.fetchOrders { [weak self] (result) in
             switch result {
                 case .success(let orders):
